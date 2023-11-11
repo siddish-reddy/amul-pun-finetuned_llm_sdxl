@@ -5,7 +5,7 @@
     },
     {
       "role": "user",
-      "content": "context: British singer Adele won 5 Grammy awards in the year 2017 for her song ‘Hello’.\npunchline: NEVER ADELE MOMENT!\nsuggest a sketch idea"
+      "content": "context: British singer Adele won 5 Grammy awards in the year 2017 for her song ‘Hello’.\nsuggest a sketch idea"
     },
     {
       "role": "assistant",
@@ -13,7 +13,7 @@
     },
     {
       "role": "user",
-      "content": "context:The Big Escape movie released\npunchline: The Big Esc-hay-pe: Robbed Every Heart."
+      "content": "context:The Big Escape movie released"
     },
     {
       "role": "assistant",
@@ -21,7 +21,7 @@
     },
     {
       "role": "user",
-      "content": "the Indian movie “Newton” was nominated for the Oscars\nNEWTURN FOR THE OSCARS! \nAmul: NEWTRITIOUS!"
+      "content": "the Indian movie “Newton” was nominated for the Oscars"
     },
     {
       "role": "assistant",
@@ -29,7 +29,7 @@
     },
     {
       "role": "user",
-      "content": "Movie that’s broken all box office records! Baahubali\nBaaho se Belly tak\nAmul: Enjoy this Blockbuster"
+      "content": "Movie that’s broken all box office records! Baahubali"
     },
     {
       "role": "assistant",
@@ -37,7 +37,7 @@
     },
     {
       "role": "user",
-      "content": "Our badminton star Sndhu, needs all the encouragement after winning for India\tJust Sindhu it!\tAmul: Great service, smashing taste."
+      "content": "Our badminton star Sndhu, needs all the encouragement after winning for India"
     },
     {
       "role": "assistant",
