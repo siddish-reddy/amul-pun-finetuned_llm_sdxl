@@ -134,8 +134,7 @@ async def get_image_caption_output(headline_situation):
 async def get_image(image_caption_output, image, headline_situation):
     # do some work
     caption = await get_image_caption_output(headline_situation)
-    image_caption_output.markdown(caption)
-    image.text('Generating image... (30s-90s)')
+    image_caption_output.markdown(caption + "\n\n---\nGenerating image... (30s-90s)")
 
     output = await replicate.async_run(
         "zylim0702/sdxl-lora-customize-model:5a2b1cff79a2cf60d2a498b424795a90e26b7a3992fbd13b340f73ff4942b81e",
