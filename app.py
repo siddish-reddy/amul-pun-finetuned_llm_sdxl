@@ -15,9 +15,9 @@ REPLICATE_API_TOKEN = os.getenv('REPLICATE_API_TOKEN')
 # st.title("Amul GPT")
 st.set_page_config(page_title="Amul GPT", layout="wide")
 
-pun_few_shot = json.load(open('pun_few_shot.json'))
-story_few_shot = json.load(open('story_few_shot.json'))
-pun_finetune_static = json.load(open('pun_finetune_static.json'))
+pun_few_shot = json.load(open('prompts/pun_few_shot.json'))
+story_few_shot = json.load(open('prompts/story_few_shot.json'))
+pun_finetune_static = json.load(open('prompts/pun_finetune_static.json'))
 
 async def gpt_wrapper(messages, model):   
     url = "https://api.openai.com/v1/chat/completions"
@@ -101,8 +101,8 @@ async def get_turbo_3_5_finetune_output(turbo_3_5_finetune_output, headline_situ
     }
     messages = pun_finetune_static + [current_turn]
     generation = await gpt_wrapper(messages, model)
-    generation = generation.replace('Mainline:', '## Mainline:')
-    generation = generation.replace('Tagline:', '### Tagline:')
+    generation = generation.replace('Mainline:', '##')
+    generation = generation.replace('Tagline:', '###')
     turbo_3_5_finetune_output.markdown(generation)
 
     return generation
@@ -115,8 +115,8 @@ async def get_turbo_4_128k_output(turbo_4_128k_output, headline_situation):
     }
     messages = pun_few_shot + [current_turn]
     generation = await gpt_wrapper(messages, model)
-    generation = generation.replace('Mainline:', '## Mainline:')
-    generation = generation.replace('Tagline:', '### Tagline:')
+    generation = generation.replace('Mainline:', '##')
+    generation = generation.replace('Tagline:', '###')
     turbo_4_128k_output.markdown(generation)
     return generation
 
@@ -135,8 +135,9 @@ async def get_image(image_caption_output, image, headline_situation):
     # do some work
     caption = await get_image_caption_output(headline_situation)
     image_caption_output.markdown(caption)
+    image.text('Generating image... (30s-90s)')
 
-    output = replicate.run(
+    output = await replicate.async_run(
         "zylim0702/sdxl-lora-customize-model:5a2b1cff79a2cf60d2a498b424795a90e26b7a3992fbd13b340f73ff4942b81e",
         input={
             "width": 400,
