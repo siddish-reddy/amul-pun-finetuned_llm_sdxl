@@ -1,0 +1,8 @@
+.DS_Store
+.env
+.python-version
+
+images/*.jpg
+images/*.gif
+images/*.png
+images/*.jpeg
